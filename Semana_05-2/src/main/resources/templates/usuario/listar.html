@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Listar usuarios</h1>
+	<p th:if="${usuarios.size() == 0}">No hay usuarios!</p>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Correo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${usuarios}">
+				<td th:text="${item.nombre}"></td>
+				<td th:text="${item.apellido}"></td>
+				<td th:text="${item.correo}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

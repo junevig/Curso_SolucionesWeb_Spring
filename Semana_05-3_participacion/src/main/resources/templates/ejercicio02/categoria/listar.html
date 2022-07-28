@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista de Categorías</h1>
+	<div th:if="${categorias.size() == null}">No hay categorías</div>
+	<table border=1>
+		<thead>
+			<tr>
+				<th>Código</th>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${categorias}">
+				<td th:text="${item.codigo}"></td>
+				<td th:text="${item.nombre}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/ejercicio02/categoria}">Regresar</a>
+</body>
+</html>

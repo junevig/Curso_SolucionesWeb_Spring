@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/all.css}">
+</head>
+<body>
+	
+	<div class="container">
+		<div class="card my-4">
+			<h5 class="card-header">Lista de Clientes</h5>
+			<div class="card-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>NOMBRE</th>
+							<th>APELLIDO</th>
+							<th>CORREO</th>
+							<th>FECHA</th>
+							<th>EDITAR</th>
+							<th>ELIMINAR</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="item: ${listaClientes}">
+							<!-- Aquí van los atributos de la clase -->
+							<td th:text="${item.id}"></td>
+							<td th:text="${item.nombre}"></td>
+							<td th:text="${item.apellido}"></td>
+							<td th:text="${item.correo}"></td>
+							<td th:text="${item.fechaCreacion}"></td>
+							<td>
+								<a class="btn btn-warning" th:href="@{/clientes/formulario/editar/}+${item.id}"><i class="fas fa-edit"></i> Editar</a>
+							</td>
+							<td>
+								<a class="btn btn-danger" th:href="@{/clientes/eliminar/}+${item.id}" onclick="return confirm('Desea eliminar?')"><i class="fas fa-trash-alt"></i> Eliminar</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+							
+				<p>
+					<a class="btn btn-success" th:href="@{/clientes/formulario}"><i class="fas fa-user"></i> Registrar Nuevo Cliente</a>
+				</p>
+							
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

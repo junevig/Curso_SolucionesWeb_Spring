@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Datos del Cliente</h1>
+	<form th:action="@{/clientes/formulario}" th:object="${cliente}" method="post">
+		
+		<p>
+			<label>Ingrese Nombre:</label>
+			<input type="text" th:field="*{nombre}" />
+		</p>
+		
+		<p>
+			<label>Ingrese Apellido:</label>
+			<input type="text" th:field="*{apellido}" />
+		</p>
+		
+		<p>
+			<label>Ingrese correo:</label>
+			<input type="email" th:field="*{correo}" />
+		</p>
+		
+		<p>
+			<label>Fecha:</label>
+			<input type="date" th:field="*{fechaCreacion}" />
+		</p>
+		
+		<input type="hidden" th:field="*{id}" />
+		
+		<br>
+		<button type="submit">Guardar Datos</button>
+		<button>
+			<a th:href="@{/clientes/listar}">Regresar</a>
+		</button>
+	</form>
+</body>
+</html>

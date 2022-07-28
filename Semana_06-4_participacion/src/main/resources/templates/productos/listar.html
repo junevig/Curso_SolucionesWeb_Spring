@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista de Productos</h1>
+	<table border=1>
+		<thead>
+			<tr>
+				<th>CÓDIGO</th>
+				<th>NOMBRE PRODUCTO</th>
+				<th>PRECIO UNITARIO</th>
+				<th>NOMBRE PROVEEDOR</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${listaProductos}">
+				<td th:text="${item.codigo}"></td>
+				<td th:text="${item.nombreProducto}"></td>
+				<td th:text="${item.precioUnitario}"></td>
+				<td th:text="${item.nombreProveedor}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Envío de información</h1>
+	<h2>Mediante el Param</h2>
+	<p><a th:href="@{/parametro/string?texto=Pagina01&edad=30}">Página 01</a></p>
+	<p><a th:href="@{/parametro/string?texto=Pagina02&edad=40}">Página 02</a></p>
+	<h2>Mediante el PathVariable</h2>
+	<p><a th:href="@{/variables/string/hola/15}">Página 03</a></p>
+</body>
+</html>

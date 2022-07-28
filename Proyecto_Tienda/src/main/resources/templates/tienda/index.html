@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="layouts/template2 :: cabecera"></head>
+
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div th:replace="layouts/template :: barra_titulo"></div>
+
+					<div class="clearfix"></div>
+
+					<!-- menu profile quick info -->
+					<div th:replace="layouts/template :: barra_perfil"></div>
+					<!-- /menu profile quick info -->
+
+					<br />
+
+					<!-- sidebar menu -->
+					<div th:replace="layouts/template :: barra_vertical"></div>
+					<!-- /sidebar menu -->
+
+					<!-- /menu footer buttons -->
+					<div th:replace="layouts/template :: configuracion_pagina"></div>
+					<!-- /menu footer buttons -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div th:replace="layouts/template :: configuracion_perfil"></div>
+			<!-- /top navigation -->
+			
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Listado de Tiendas</h3>
+						</div>
+						<!--
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search for...">
+									<span class="input-group-btn">
+										<button class="btn btn-secondary" type="button">Go!</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						-->
+					</div>
+					
+					<!-- Card List Prov -->
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<!--
+									<h2>Listado de Proveedores</h2>
+								-->
+								<!-- Button trigger modal New Client -->
+								<button type="button" class="btn btn-primary nuevoTienda" data-toggle="modal" data-target="#tiendaModal">
+									Nuevo
+								</button>
+								<div class="clearfix"></div>
+							</div>
+							<div class="x_content">
+								<div class="table-responsive">
+									<table id="tabla" class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Nombre</th>
+												<th>RUC</th>
+												<th>Dirección</th>
+												<th>Teléfono</th>
+												<th>Estado</th>
+												<th>Fecha Registro</th>
+												<th>Editar</th>
+												<th>Eliminar</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="item: ${listaTiendas}">
+												<th th:text="${item.id}"></th>
+												<td th:text="${item.nombre}"></td>
+												<td th:text="${item.ruc}"></td>
+												<td th:text="${item.direccion}"></td>
+												<td th:text="${item.telefono}"></td>
+												<td th:text="${item.estado}"></td>
+												<td th:text="${item.fechaCreacion}"></td>
+												<td class="text-center">
+													<button type="button" class="btn btn-warning editarTienda" data-toggle="modal" data-target="#tiendaModal"
+													th:id="${item.id}" th:nombre="${item.nombre}" th:ruc="${item.ruc}"
+													th:direccion="${item.direccion}" th:telefono="${item.telefono}" 
+													th:estado="${item.estado}">
+													<i class="fas fa-pen"></i>
+												</button>
+											</td>
+											<td class="text-center">
+												<a th:href="@{/tienda/eliminar/}+${item.id}" class="btn btn-danger" onclick="return confirm('Desea eliminar?')">
+													<i class="fas fa-trash"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="tiendaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Datos de la Tienda</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						
+						<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:action="@{/tienda/formulario}" th:object="${tienda}" method="post">
+							<input type="hidden" th:field="*{id}" />
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align">Nombre <span class="required">*</span>
+								</label>
+								<div class="col-md-8 col-sm-6">
+									<input th:field="*{nombre}" type="text" required="required" class="form-control">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align">RUC <span class="required">*</span>
+								</label>
+								<div class="col-md-8 col-sm-6">
+									<input th:field="*{ruc}" type="text" required="required" class="form-control ">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align">Dirección <span class="required">*</span>
+								</label>
+								<div class="col-md-8 col-sm-6">
+									<input th:field="*{direccion}" type="text" required="required" class="form-control">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align">Teléfono <span class="required">*</span>
+								</label>
+								<div class="col-md-8 col-sm-6">
+									<input th:field="*{telefono}" type="text" required="required" class="form-control">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align">Estado <span class="required">*</span>
+								</label>
+								<div class="col-md-8 col-sm-6">
+									<select th:field="*{estado}" class="form-control" required>
+										<option value="" hidden selected>- Seleccionar una categoría -</option>
+										<option value="1">Activo</option>
+										<option value="0">Inactivo</option>
+									</select>
+								</div>
+							</div>
+							<div class="ln_solid"></div>
+							<div class="item form-group">
+								<div class="col-md-8 col-sm-6 offset-md-3 offset-2 mt-md-0 mt-3">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button class="btn btn-primary" type="reset">Reset</button>
+									<button type="submit" class="btn btn-success">Enviar</button>
+								</div>
+							</div>
+
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- /page content -->
+
+	<!-- footer content -->
+	<footer th:replace="layouts/template :: pie_pagina"></footer>
+	<!-- /footer content -->
+</div>
+</div>
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<!-- Bootstrap -->
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<!-- NProgress -->
+<script th:src="@{/js/nprogress.js}"></script>
+<!-- Custom Theme Scripts -->
+<script th:src="@{/js/custom.min.js}"></script>
+<!-- DataTables.net -->
+<script th:src="@{/datatable/datatables.min.js}"></script>
+<script th:src="@{/js/data-table.js}"></script>
+
+<script th:src="@{/js/tienda.js}"></script>
+</body>
+</html>

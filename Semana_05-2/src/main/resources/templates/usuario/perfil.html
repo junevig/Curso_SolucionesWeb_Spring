@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Datos del Usuario</h1>
+	<p>Nombre: <span th:text="${usuario.nombre}"></span> </p>
+	<p>Apellido: <span th:text="${usuario.apellido}"></span></p>
+	<p>Correo: 
+		<span th:if="${usuario.correo == null}">El usuario no tiene correo</span>
+		<span th:if="${usuario.correo != null}" th:text="${usuario.correo}"></span>
+	</p>
+	
+</body>
+</html>

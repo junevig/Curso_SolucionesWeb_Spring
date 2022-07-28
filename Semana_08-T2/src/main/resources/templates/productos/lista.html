@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Productos</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/all.css}">
+</head>
+<body>
+	
+	<div class="container-fluid py-4 bg-primary text-center">
+		<h1 class="my-4 text-white">Lista de Productos</h1>
+	</div>
+
+	<div class="container">
+		<div class="row my-4">
+			<div class="col-12">
+				<div class="card shadow p-4 mb-4">
+					<div class="card-header text-center">
+						<h5></h5>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead class="table-primary">
+									<tr>
+										<th>Código</th>
+										<th>Producto</th>
+										<th>Marca</th>
+										<th>Categoría</th>
+										<th>Cantidad</th>
+										<th>Precio Venta</th>
+										<th>Proveedor</th>
+										<th>Precio Compra</th>
+										<th>Fecha Creación</th>
+										<th>Editar</th>
+										<th>Eliminar</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="item: ${listaProductos}">
+										<th th:text="${item.codigo}"></th>
+										<td th:text="${item.nombreProducto}"></td>
+										<td th:text="${item.marca}"></td>
+										<td th:text="${item.categoria}"></td>
+										<td th:text="${item.cantidad}"></td>
+										<td th:text="${item.precioVenta}"></td>
+										<td th:text="${item.nombreProveedor}"></td>
+										<td th:text="${item.precioCompra}"></td>
+										<td th:text="${item.fechaCreacion}"></td>
+										<td class="text-center">
+											<a th:href="@{/productos/formulario/editar/}+${item.codigo}" class="btn btn-warning">
+												<i class="fas fa-edit"></i>
+											</a>
+										</td>
+										<td class="text-center">
+											<a th:href="@{/productos/eliminar/}+${item.codigo}" class="btn btn-danger" onclick="return confirm('Desea eliminar?')">
+												<i class="fas fa-trash"></i>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<a th:href="@{/productos/formulario/nuevo}" class="btn btn-primary">
+							Agregar Producto Nuevo
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

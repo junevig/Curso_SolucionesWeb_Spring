@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista de Productos</h1>
+	<div th:if="${productos.size() == null}">No hay productos</div>
+	<table border=1>
+		<thead>
+			<th>
+				Código
+			</th>
+			<th>
+				Nombre
+			</th>
+			<th>
+				Precio
+			</th>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${productos}">
+				<td th:text="${item.codigo}"></td>
+				<td th:text="${item.nombre}"></td>
+				<td th:text="${item.precio}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/ejercicio02/producto}">Regresar</a>
+</body>
+</html>
