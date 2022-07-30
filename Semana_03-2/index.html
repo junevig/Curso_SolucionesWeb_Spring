@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card mt-4">
+            <div class="card-header">
+                Registro de Personas
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="mb-2" for="">Ingrese DNI:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese DNI" required minlength="8" maxlength="8">
+                            <div class="invalid-feedback">El DNI es obligatorio</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="">Ingrese Nombres:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese Nombres">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="mb-2" for="">Ingrese Apellido Paterno:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese Apellido Paterno">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="">Ingrese Apellido Materno:</label>
+                            <input type="text" class="form-control" placeholder="Ingrese Apellido Materno">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3">
+                            <label class="mb-2" for="">Género:</label>
+                            <select name="" id="" class="form-select" required>
+                                <option value="">- Seleccione un género -</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione un género</div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="mb-2" for="">Estado Civil:</label>
+                            <select name="" id="" class="form-select" required>
+                                <option value="">- Seleccione un estado civil -</option>
+                                <option value="S">Soltero</option>
+                                <option value="C">Casado</option>
+                                <option value="V">Viudo</option>
+                            </select>
+                            <div class="invalid-feedback">Seleccione un estado civil</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar Persona</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/validacion.js"></script>
+</body>
+</html>

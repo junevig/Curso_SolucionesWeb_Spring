@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos2.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12">
+                <br>
+            <h1>Solicite una cotización</h1>
+            <p>Al brindarnos información precisa, nos permitirá llegar a usted más rápido</p>
+            <br><br><br>
+            <img src="img/modelo-accent-big-1.png" alt="">
+            <p>Por favor,introduzca su información personal para solicitar una cotización</p>
+            </div>
+        </div>
+        <form action="">
+            <div class="row">
+                <div class="col-6 my-4">
+                    <input class="form-control" type="text" placeholder="NOMBRES">
+                </div>
+                <div class="col-6 my-4">
+                    <input class="form-control" type="text" placeholder="APELLIDOS">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-4">
+                    <select class="form-select">
+                        <option hidden selected>IDENTIFICACIÓN</option>
+                        <option value="D">DNI</option>
+                        <option value="R">RUC</option>
+                        <option value="CE">CE</option>
+                        <option value="P">PASAPORTE</option>
+                    </select>
+                </div>
+                <div class="col-6 mb-4">
+                    <input type="text" class="form-control" placeholder="NUMERO DE IDENTIFICACIÓN">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mb-4">
+                    <select name="" id="" class="form-select">
+                        <option hidden selected>DEPARTAMENTO</option>
+                        <option value="L">Lima</option>
+                        <option value="LL">La Libertad</option>
+                        <option value="C">Cajamarca</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-4">
+                    <select name="" id="" class="form-select">
+                        <option hidden selected>PROVINCIA</option>
+                        <option value="">Barranca</option>
+                        <option value="">Cajatambo</option>
+                        <option value="">Cañete</option>
+                    </select>
+                </div>
+                <div class="col-4 mb-4">
+                    <select name="" id="" class="form-select">
+                        <option hidden selected>DISTRITO</option>
+                        <option value="">Breña</option>
+                        <option value="">San Miguel</option>
+                        <option value="">Jesus María</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-4">
+                    <input type="email" class="form-control" placeholder="EMAIL">
+                </div>
+                <div class="col-6 mb-4">
+                    <input type="email" class="form-control" placeholder="CONFIRMAR EMAIL">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mb-4">
+                    <input type="tel" class="form-control" placeholder="CELULAR">
+                </div>
+                <div class="col-6 mb-4">
+                    <select name="" id="" class="form-select">
+                        <option hidden selected>LA DECISIÓN DE COMPRA LA EFECTUARÁ DENTRO DE LOS PRÓXIMOS</option>
+                        <option value="">HOY</option>
+                        <option value="">1 mes</option>
+                        <option value="">3 meses</option>
+                    </select>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-6 text-end">
+                    <button class="btnAnterior" type="button">
+                        Anterior
+                    </button>
+                </div>
+                <div class="col-6 text-start">
+                    <button class="btnEnviar" type="submit">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+            <br><br><br>
+        </form>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
